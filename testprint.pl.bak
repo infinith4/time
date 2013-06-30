@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use POSIX 'strftime';
+
+
+my $datetime = strftime("%a, %d %b %Y %H:%M:%S %z,%N", localtime());
+print "$datetime\n";
+
+use DateTime;
+my $dt = DateTime->now(time_zone => 'local');
+print '%N : ミリ秒(%3N と書くとミリ秒を3桁で%6Nと書くとミリ秒を6桁で表示) : '
+  . $dt->strftime("%3N") . "\n";
+
+use Time::HiRes;  
+my $start_time = Time::HiRes::time;  
+  
+#--------------  
+#てきとーな処理  
+#--------------  
+  
+#処理時間を計算して小数点以下を3桁に丸めて表示  
+printf("%0.3f",Time::HiRes::time - $start_time);  

@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+use POSIX 'strftime';
+
+
+my $time = strftime( "%Y-%m-%d %H:%M:%S" , localtime );
+print "$time\n";
